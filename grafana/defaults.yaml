@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+grafana:
+  pkg: grafana
+  pkgrepo: False
+  group: grafana
+  config_file: /etc/grafana/grafana.ini
+  config: {}
+  service:
+    name: grafana-server
+    user: grafana
+    group: grafana

@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+grafana:
+  pkg: grafana
+  pkgrepo:
+    humanname: grafana_official
+    name: deb https://packages.grafana.com/oss/deb stable main
+    file: /etc/apt/sources.list.d/grafana.list
+    key_url: https://packages.grafana.com/gpg.key
+  config_file: /etc/grafana/grafana.ini
+  service:
+    name: grafana-server
+
+  tofs:
+    # The files_switch key serves as a selector for alternative
+    # directories under the formula files directory. See TOFS pattern
+    # doc for more info.
+    # Note: Any value not evaluated by `config.get` will be used literally.
+    # This can be used to set custom paths, as many levels deep as required.
+    files_switch:
+      - any/path/can/be/used/here
+      - id
+      - osfinger
+      - os
+      - os_family
+    # All aspects of path/file resolution are customisable using the options below.
+    # This is unnecessary in most cases; there are sensible defaults.
+    # path_prefix: grafana_alt
+    # dirs:
+    #   files: files_alt
+    #   default: default_alt
+    # source_files:
+    #   grafana-config-file-file-managed:
+    #     - 'example_alt.tmpl'
+    #     - 'example_alt.tmpl.jinja'
+
+  # Pillar-based config
+  # See also https://grafana.com/docs/installation/configuration/
+  config:
+    default:
+      instance_name: ${HOSTNAME}
+    security:
+      admin_user: admin
+    auth.google:
+      client_secret: 0ldS3cretKey
