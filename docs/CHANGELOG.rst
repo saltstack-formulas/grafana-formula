@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.1.0 <https://github.com/saltstack-formulas/grafana-formula/compare/v1.0.0...v1.1.0>`_ (2019-06-05)
+---------------------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **macos:** basic package and group handling (\ `bda2a7c <https://github.com/saltstack-formulas/grafana-formula/commit/bda2a7c>`_\ )
+
 1.0.0 (2019-05-06)
 ------------------
 
