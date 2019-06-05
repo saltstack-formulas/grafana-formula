@@ -20,6 +20,7 @@ grafana-config-file-file-managed:
     - mode: 640
     - user: root
     - group: {{ grafana.group }}
+    - makedirs: True
     - template: jinja
     - context:
         config: {{ grafana.config|json }}
