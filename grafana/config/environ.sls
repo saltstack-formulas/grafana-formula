@@ -6,21 +6,18 @@
 {%- from tplroot ~ "/map.jinja" import grafana with context %}
 {%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
 
-{%- if 'config' in grafana and grafana.config %}
+{%- if 'environ' in grafana and grafana.environ %}
     {%- if grafana.pkg.use_upstream_archive %}
         {%- set sls_package_install = tplroot ~ '.archive.install' %}
-    {%- else %}
-        {%- set sls_package_install = tplroot ~ '.package.install' %}
-    {%- endif %}
 
 include:
   - {{ sls_package_install }}
 
-grafana-config-file-file-managed-config_file:
+grafana-config-file-file-managed-environ_file:
   file.managed:
-    - name: {{ grafana.config_file }}
-    - source: {{ files_switch(['grafana.ini.jinja'],
-                              lookup='grafana-config-file-file-managed-config_file'
+    - name: {{ grafana.environ_file }}
+    - source: {{ files_switch(['grafana.sh.jinja'],
+                              lookup='grafana-config-file-file-managed-environ_file'
                  )
               }}
     - mode: 640
@@ -29,8 +26,9 @@ grafana-config-file-file-managed-config_file:
     - makedirs: True
     - template: jinja
     - context:
-        config: {{ grafana.config|json }}
+        config: {{ grafana.environ|json }}
     - require:
       - sls: {{ sls_package_install }}
 
+    {%- endif %}
 {%- endif %}

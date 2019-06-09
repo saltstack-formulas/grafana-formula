@@ -2,13 +2,15 @@
 # vim: ft=yaml
 ---
 grafana:
-  pkg: grafana
+  pkg:
+    name: grafana
   pkgrepo:
     humanname: grafana_official
     name: deb https://packages.grafana.com/oss/deb stable main
     file: /etc/apt/sources.list.d/grafana.list
     key_url: https://packages.grafana.com/gpg.key
   config_file: /etc/grafana/grafana.ini
+  environ_file: /etc/default.grafana.sh
   service:
     name: grafana-server
 
@@ -37,6 +39,8 @@ grafana:
 
   # Pillar-based config
   # See also https://grafana.com/docs/installation/configuration/
+  environ:
+    - 'export PATH=${PATH}:/opt/grafana-6.2.2.darwin-amd64'
   config:
     default:
       instance_name: ${HOSTNAME}

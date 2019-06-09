@@ -53,6 +53,11 @@ starts the associated grafana service.
 
 This state will install the grafana package only.
 
+``grafana.archive``
+^^^^^^^^^^^^^^^^^^^
+
+This state will install the grafana software from archive file only.
+
 ``grafana.config``
 ^^^^^^^^^^^^^^^^^^^
 
@@ -91,3 +96,9 @@ dependency on ``grafana.service.clean`` via include list.
 
 This state will remove the grafana package and has a depency on
 ``grafana.config.clean`` via include list.
+
+``grafana.archive.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This state will uninstall grafana software from archive extracted directory.
+

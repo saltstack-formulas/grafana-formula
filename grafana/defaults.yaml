@@ -2,11 +2,23 @@
 # vim: ft=yaml
 ---
 grafana:
-  pkg: grafana
-  pkgrepo: False
+  pkg:
+    name: grafana
+    binary: grafana
+    use_upstream_archive: False
+    archive:
+      name: /opt
+      source: https://dl.grafana.com/oss/release/grafana-6.2.2.linux-amd64.tar.gz
+      source_hash: bf2a1ffab417e54a1c31e421077b9c5278e423d5fa9b7b98d418c4f85602838b
+      trim_output: True
+      enforce_toplevel: True
+  pkgrepo: {}
   group: grafana
   config_file: /etc/grafana/grafana.ini
   config: {}
+  environ_file: /etc/default/grafana.sh
+  environ:
+    - 'export PATH=${PATH}:/opt/grafana-6.2.2.linux-amd64'
   service:
     name: grafana-server
     user: grafana

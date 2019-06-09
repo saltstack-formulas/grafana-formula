@@ -18,4 +18,4 @@ grafana-package-install-pkgrepo-managed:
 
 grafana-package-install-pkg-installed:
   pkg.installed:
-    - name: {{ grafana.pkg }}
+    - name: {{ grafana.pkg.name }}

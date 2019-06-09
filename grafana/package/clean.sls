@@ -11,6 +11,6 @@ include:
 
 grafana-package-clean-pkg-removed:
   pkg.removed:
-    - name: {{ grafana.pkg }}
+    - name: {{ grafana.pkg.name }}
     - require:
       - sls: {{ sls_config_clean }}
