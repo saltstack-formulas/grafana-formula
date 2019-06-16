@@ -12,5 +12,7 @@ include:
 grafana-package-clean-pkg-removed:
   pkg.removed:
     - name: {{ grafana.pkg.name }}
+  {%- if 'config' in grafana and grafana.config %}
     - require:
       - sls: {{ sls_config_clean }}
+  {%- endif %}

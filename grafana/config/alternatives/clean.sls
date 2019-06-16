@@ -15,17 +15,17 @@ include:
 grafana-package-archive-remove-home-alternative-remove:
   alternatives.remove:
     - name: grafana-home
-    - path: {{ grafana.base_dir }}
+    - path: {{ grafana.pkg.archive.name }}
     - onlyif: update-alternatives --get-selections |grep ^grafana-home
     - require:
       - sls: {{ sls_archive_clean if grafana.pkg.use_upstream_archive else sls_package_clean }}
 
-      {% for i in ['grafana',] %}
+      {% for i in ['grafana-cli', 'grafana-server'] %}
 
 grafana-package-archive-remove-{{ i }}-alternative-remove:
   alternatives.remove:
     - name: link-{{ i }}
-    - path: {{ grafana.base_dir }}/{{ i }}
+    - path: {{ grafana.pkg.archive.name }}/bin/{{ i }}
     - onlyif: update-alternatives --get-selections |grep ^link-{{ i }}
     - require:
       - sls: {{ sls_archive_clean if grafana.pkg.use_upstream_archive else sls_package_clean }}

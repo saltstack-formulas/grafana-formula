@@ -20,7 +20,7 @@ grafana-config-file-file-managed-environ_file:
               }}
     - mode: 640
     - user: root
-    - group: {{ grafana.group }}
+    - group: {{ grafana.rootgroup if grafana.pkg.use_upstream_archive else grafana.group }}
     - makedirs: True
     - template: jinja
     - context:

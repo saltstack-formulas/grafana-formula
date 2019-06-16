@@ -8,5 +8,4 @@
 grafana-cli-package-archive-clean-file-absent:
   file.absent:
     - names:
-      - {{ grafana.pkg.archive.name }}/grafana-6.2.2.darwin-amd64
-      - {{ grafana.pkg.archive.name }}/grafana-6.2.2.linux-amd64
+      - {{ grafana.pkg.archive.name }}

@@ -26,4 +26,3 @@ grafana-config-clean-file-absent:
       - sls: {{ sls_alternatives_clean }}
 
   {%- endif %}
-~                

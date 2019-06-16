@@ -2,6 +2,7 @@
 # vim: ft=yaml
 ---
 grafana:
+  dir: /opt/grafana
   version: '6.2.2'
   pkg:
     name: grafana
@@ -15,8 +16,11 @@ grafana:
       trim_output: True   {# works in 2018.3.2. onwards #}
       archive_suffix: tar.gz
       archive_format: tar
-      enforce_toplevel: True
+      enforce_toplevel: False         # needed for grafana
+      options: '--strip-components=1' # needed for grafana
   pkgrepo: {}
+  kernel: {{ grains.kernel | lower }}
+  rootgroup: root
   group: grafana
   config_file: /etc/grafana/grafana.ini
   config: {}
@@ -26,3 +30,7 @@ grafana:
     name: grafana-server
     user: grafana
     group: grafana
+
+  linux:
+    #'Alternatives system' priority: zero disables (default)
+    altpriority: 0

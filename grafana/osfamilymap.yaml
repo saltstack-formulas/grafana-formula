@@ -50,6 +50,7 @@ OpenBSD: {}
 Solaris: {}
 
 Windows:
+  dir: C:\\Program Files
   pkg:
     archive:
       name: C:\\Program Files
@@ -57,6 +58,8 @@ Windows:
       archive_format: zip
 
 MacOS:
+  rootgroup: {{ macos_group | d('') }}
   group: {{ macos_group | d('') }}
   service:
+    rootgroup: {{ macos_group | d('') }}
     group: {{ macos_group | d('') }}

@@ -9,6 +9,11 @@
 include:
   - {{ sls_config_file }}
 
+grafana-service-running-service-unmasked:
+  service.unmasked:
+    - name: {{ grafana.service.name }}
+    - onlyif: systemctl list-unit-files | grep {{ grafana.service.name }} >/dev/null 2>&1
+
 grafana-service-running-service-running:
   service.running:
     - name: {{ grafana.service.name }}
@@ -19,3 +24,4 @@ grafana-service-running-service-running:
     - require:
       - sls: {{ sls_config_file }}
   {%- endif %}
+    - onlyif: systemctl list-unit-files | grep {{ grafana.service.name }} >/dev/null 2>&1
