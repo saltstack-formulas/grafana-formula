@@ -23,6 +23,20 @@
 {#- Merge the grafana pillar #}
 {%- set grafana = salt['pillar.get']('grafana', default=defaults, merge=True) %}
 
+{#- archive jinja #}
+{%- if grafana.pkg.use_upstream_archive %}
+    {%- set name = 'grafana-%s.%s-%s'|format(grafana.version, grafana.kernel, grafana.arch) %}
+    {%- set uri = grafana.pkg.archive.uri + '/' + name %}
+    {%- do grafana.pkg.archive.update({
+           'name':           grafana.pkg.archive.name + '/' + name,
+           'source':         uri + '.' + grafana.pkg.archive.archive_suffix,
+           'source_hash':    uri + '.' + grafana.pkg.archive.archive_suffix + '.sha256',
+           'archive_format': grafana.pkg.archive.archive_format
+    }) %}
+    {%- do grafana.update({'base_dir': grafana.pkg.archive.name}) %}
+    {%- do grafana.environ.append('export PATH=${PATH}:' + grafana.pkg.archive.name) %}
+{%- endif %}
+
 {#- Contactenate arguments #}
 {%- macro concat_args(args) %}
 {%-   set args = args|dictsort %}

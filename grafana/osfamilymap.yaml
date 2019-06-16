@@ -53,17 +53,10 @@ Windows:
   pkg:
     archive:
       name: C:\\Program Files
-      source: https://dl.grafana.com/oss/release/grafana-6.2.2.windows-amd64.zip
-      source_hash: c44ae0019834a73860ba9804965b79235be9284017d716823c316ac6b24abc4f
+      archive_suffix: zip
+      archive_format: zip
 
 MacOS:
   group: {{ macos_group | d('') }}
   service:
     group: {{ macos_group | d('') }}
-  environ:
-    - 'export PATH=${PATH}:/opt/grafana-6.2.2.darwin-amd64'
-  pkg:
-    archive:
-      name: /opt
-      source: https://dl.grafana.com/oss/release/grafana-6.2.2.darwin-amd64.tar.gz 
-      source_hash: 3c3d599ba8be48d22eee71f1854d185d7613b9439c0c655a1eb33e1e13474c50
