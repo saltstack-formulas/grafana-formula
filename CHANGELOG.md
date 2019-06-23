@@ -1,5 +1,25 @@
 # Changelog
 
+# [3.0.0](https://github.com/saltstack-formulas/grafana-formula/compare/v2.0.0...v3.0.0) (2019-06-23)
+
+
+### Features
+
+* **alternatives:** add linux alternatives support ([0b05c5d](https://github.com/saltstack-formulas/grafana-formula/commit/0b05c5d))
+* **archives:** introduce support for archive files ([e7a1523](https://github.com/saltstack-formulas/grafana-formula/commit/e7a1523))
+
+
+### Tests
+
+* **fixes:** fix two kitchen test failures ([4447f32](https://github.com/saltstack-formulas/grafana-formula/commit/4447f32))
+* **inspec:** expand unit tests for archives ([27bc326](https://github.com/saltstack-formulas/grafana-formula/commit/27bc326))
+
+
+### BREAKING CHANGES
+
+* **archives:** the parameter `pkg` is now a dictionary. References
+ to `template.pkg` should be changed to `template.pkg.name`.
+
 # [2.0.0](https://github.com/saltstack-formulas/grafana-formula/compare/v1.1.1...v2.0.0) (2019-06-23)
 
 
