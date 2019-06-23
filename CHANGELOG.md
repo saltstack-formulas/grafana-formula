@@ -1,5 +1,18 @@
 # Changelog
 
+# [2.0.0](https://github.com/saltstack-formulas/grafana-formula/compare/v1.1.1...v2.0.0) (2019-06-23)
+
+
+### Features
+
+* **repository:** support rpm-based linux distros ([ded3157](https://github.com/saltstack-formulas/grafana-formula/commit/ded3157))
+
+
+### BREAKING CHANGES
+
+* **repository:** the parameter `pkg` is now a dictionary. References
+ to `grafana.pkg` should be changed to `grafana.pkg.name`.
+
 ## [1.1.1](https://github.com/saltstack-formulas/grafana-formula/compare/v1.1.0...v1.1.1) (2019-06-23)
 
 
