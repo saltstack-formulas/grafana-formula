@@ -2,8 +2,13 @@
 # vim: ft=yaml
 ---
 grafana:
+  dir: /opt/grafana
+  version: '6.2.2'
+
   pkg:
     name: grafana
+    binary: grafana
+    use_upstream_archive: False
     use_upstream_repo: False
     repo:
       humanname: grafana
@@ -12,11 +17,29 @@ grafana:
         - installed by salt
       enabled: 1
       gpgcheck: 1
+    archive:
+      name: /opt
+      uri: https://dl.grafana.com/oss/release
+      source: None
+      source_hash: None
+      trim_output: True   {# works in 2018.3.2. onwards #}
+      archive_suffix: tar.gz
+      archive_format: tar
+      enforce_toplevel: False         # needed for grafana
+      options: '--strip-components=1' # needed for grafana
 
+  kernel: {{ grains.kernel | lower }}
+  rootgroup: root
   group: grafana
   config_file: /etc/grafana/grafana.ini
   config: {}
+  environ_file: /etc/default/grafana.sh
+  environ: []
   service:
     name: grafana-server
     user: grafana
     group: grafana
+
+  linux:
+    #'Alternatives system' priority: zero disables (default)
+    altpriority: 0

@@ -5,7 +5,7 @@
 {%- set tplroot = tpldir.split('/')[0] %}
 {%- from tplroot ~ "/map.jinja" import grafana with context %}
 
-include:
-  - {{ '.archive' if grafana.pkg.use_upstream_archive else '.package' }}
-  - .config
-  - .service
+grafana-cli-package-archive-clean-file-absent:
+  file.absent:
+    - names:
+      - {{ grafana.pkg.archive.name }}

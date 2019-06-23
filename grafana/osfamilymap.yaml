@@ -73,11 +73,19 @@ OpenBSD: {}
 
 Solaris: {}
 
-Windows: {}
+Windows:
+  dir: C:\\Program Files
+  pkg:
+    archive:
+      name: C:\\Program Files
+      archive_suffix: zip
+      archive_format: zip
 
 MacOS:
   rootuser: {{ macos_user | d('') }}
   rootgroup: {{ macos_group | d('') }}
+  group: {{ macos_group | d('') }}
   service:
     name: grafana
+    rootgroup: {{ macos_group | d('') }}
     group: {{ macos_group | d('') }}
