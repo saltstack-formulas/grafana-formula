@@ -52,6 +52,7 @@ Solaris: {}
 Windows: {}
 
 MacOS:
-  rootgroup: {{ macos_group | d('') }}
+  group: {{ macos_group | d('') }}
   service:
+    name: grafana
     group: {{ macos_group | d('') }}
