@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.1.1 <https://github.com/saltstack-formulas/grafana-formula/compare/v1.1.0...v1.1.1>`_ (2019-06-23)
+---------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **macos:** fix service name on macos (\ `f28d08b <https://github.com/saltstack-formulas/grafana-formula/commit/f28d08b>`_\ )
+
 `1.1.0 <https://github.com/saltstack-formulas/grafana-formula/compare/v1.0.0...v1.1.0>`_ (2019-06-05)
 ---------------------------------------------------------------------------------------------------------
 
