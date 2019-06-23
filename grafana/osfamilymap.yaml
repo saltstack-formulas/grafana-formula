@@ -79,4 +79,5 @@ MacOS:
   rootuser: {{ macos_user | d('') }}
   rootgroup: {{ macos_group | d('') }}
   service:
+    name: grafana
     group: {{ macos_group | d('') }}
