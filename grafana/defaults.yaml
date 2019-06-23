@@ -2,8 +2,17 @@
 # vim: ft=yaml
 ---
 grafana:
-  pkg: grafana
-  pkgrepo: False
+  pkg:
+    name: grafana
+    use_upstream_repo: False
+    repo:
+      humanname: grafana
+      name: grafana
+      comments:
+        - installed by salt
+      enabled: 1
+      gpgcheck: 1
+
   group: grafana
   config_file: /etc/grafana/grafana.ini
   config: {}

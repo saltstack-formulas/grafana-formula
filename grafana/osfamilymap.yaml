@@ -11,19 +11,42 @@
 # osfamilymap: {}
 ---
 {%- if grains.os == 'MacOS' %}
+  {% set macos_user = salt['cmd.run']("stat -f '%Su' /dev/console") %}
   {% set macos_group = salt['cmd.run']("stat -f '%Sg' /dev/console") %}
 {%- endif %}
 
 Debian:
-  pkgrepo:
-    humanname: grafana_official
-    name: deb https://packages.grafana.com/oss/deb stable main
-    file: /etc/apt/sources.list.d/grafana.list
-    key_url: https://packages.grafana.com/gpg.key
+  pkg:
+    use_upstream_repo: True
+    repo:
+      humanname: grafana_official
+      name: deb https://packages.grafana.com/oss/deb stable main
+      file: /etc/apt/sources.list.d/grafana.list
+      key_url: https://packages.grafana.com/gpg.key
 
-RedHat: {}
+RedHat:
+  pkg:
+    use_upstream_repo: True
+    repo:
+      baseurl: https://packages.grafana.com/oss/rpm-beta
+      repo_gpgcheck: 1
+      gpgkey: https://packages.grafana.com/gpg.key
+      sslverify: 1
+      sslcacert: /etc/pki/tls/certs/ca-bundle.crt
+      comments:
+        - instructions from https://grafana.com/docs/installation/rpm/
 
-Suse: {}
+Suse:
+  pkg:
+    use_upstream_repo: True
+    repo:
+      baseurl: https://packages.grafana.com/oss/rpm-beta
+      repo_gpgcheck: 1
+      gpgkey: https://packages.grafana.com/gpg.key
+      sslverify: 1
+      sslcacert: /etc/pki/tls/certs/ca-bundle.crt
+      comments:
+        - instructions from https://grafana.com/docs/installation/rpm/
 
 Gentoo: {}
 
@@ -32,7 +55,8 @@ Arch: {}
 Alpine: {}
 
 FreeBSD:
-  pkg: grafana5
+  pkg:
+    name: grafana5
   config_file: /usr/local/etc/grafana.conf
   config:
     paths:
@@ -52,7 +76,8 @@ Solaris: {}
 Windows: {}
 
 MacOS:
-  group: {{ macos_group | d('') }}
+  rootuser: {{ macos_user | d('') }}
+  rootgroup: {{ macos_group | d('') }}
   service:
     name: grafana
     group: {{ macos_group | d('') }}

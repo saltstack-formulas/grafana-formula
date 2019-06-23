@@ -2,12 +2,15 @@
 # vim: ft=yaml
 ---
 grafana:
-  pkg: grafana
-  pkgrepo:
-    humanname: grafana_official
-    name: deb https://packages.grafana.com/oss/deb stable main
-    file: /etc/apt/sources.list.d/grafana.list
-    key_url: https://packages.grafana.com/gpg.key
+  pkg:
+    name: grafana
+    repo:
+      humanname: grafana_official
+      name: deb https://packages.grafana.com/oss/deb stable main
+      file: /etc/apt/sources.list.d/grafana.list
+      key_url: https://packages.grafana.com/gpg.key
+
+
   config_file: /etc/grafana/grafana.ini
   service:
     name: grafana-server
