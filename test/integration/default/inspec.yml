@@ -1,6 +1,6 @@
-name: grafana
-title: Grafana Formula
-maintainer: Alexander Weidinger
+name: default
+title: grafana formula
+maintainer: SaltStack Formulas
 license: Apache-2.0
 summary: Verify that the grafana formula is setup and configured correctly
 supports:
@@ -9,4 +9,6 @@ supports:
   - platform-name: centos
   - platform-name: fedora
   - platform-name: opensuse
+  - platform-name: suse
   - platform-name: freebsd
+  - platform-name: amazon
