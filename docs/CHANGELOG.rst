@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`3.0.1 <https://github.com/saltstack-formulas/grafana-formula/compare/v3.0.0...v3.0.1>`_ (2019-07-25)
+---------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **macro:** remove unused 'concat_args' macro (\ `31f5863 <https://github.com/saltstack-formulas/grafana-formula/commit/31f5863>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen+travis:** modify matrix to include ``develop`` platform (\ `fe779ca <https://github.com/saltstack-formulas/grafana-formula/commit/fe779ca>`_\ )
+
 `3.0.0 <https://github.com/saltstack-formulas/grafana-formula/compare/v2.0.0...v3.0.0>`_ (2019-06-23)
 ---------------------------------------------------------------------------------------------------------
 
