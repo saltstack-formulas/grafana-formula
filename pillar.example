@@ -4,7 +4,7 @@
 grafana:
   pkg:
     name: grafana
-    use_upstream_archive: False
+    use_upstream_archive: false
     archive:
       uri: https://dl.grafana.com/oss/release
     repo:
@@ -45,11 +45,10 @@ grafana:
     # dirs:
     #   files: files_alt
     #   default: default_alt
-    # source_files:
-    #   grafana-config-file-file-managed:
-    #     - 'example_alt.tmpl'
-    #     - 'example_alt.tmpl.jinja'
+    source_files:
+      grafana-config-file-file-managed-config_file:
+        - 'alt_grafana.ini.jinja'
 
   linux:
-    #'Alternatives system' priority: zero disables (default)
+    # 'Alternatives system' priority: zero disables (default)
     altpriority: 1000
