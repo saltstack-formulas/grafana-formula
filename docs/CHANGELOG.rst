@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`3.1.0 <https://github.com/saltstack-formulas/grafana-formula/compare/v3.0.1...v3.1.0>`_ (2019-08-17)
+---------------------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **yamllint:** include for this repo and apply rules throughout (\ `62d6663 <https://github.com/saltstack-formulas/grafana-formula/commit/62d6663>`_\ )
+
 `3.0.1 <https://github.com/saltstack-formulas/grafana-formula/compare/v3.0.0...v3.0.1>`_ (2019-07-25)
 ---------------------------------------------------------------------------------------------------------
 
