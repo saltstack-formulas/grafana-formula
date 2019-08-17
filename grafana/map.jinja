@@ -26,6 +26,20 @@
 {#- Merge the grafana pillar #}
 {%- set grafana = salt['pillar.get']('grafana', default=defaults, merge=True) %}
 
+{#- Post-processing for specific non-YAML customisations #}
+{%- do grafana.update({'kernel': grains.kernel | lower}) %}
+{#- TODO: `grafana.rootuser` and `grafana.service.rootgroup` are ununsed in this formula #}
+{#- * https://github.com/saltstack-formulas/grafana-formula/search?q=rootuser&unscoped_q=rootuser #}
+{#- * https://github.com/saltstack-formulas/grafana-formula/search?q=rootgroup&unscoped_q=rootgroup #}
+{%- if grains.os == 'MacOS' %}
+{%-   set macos_user = salt['cmd.run']("stat -f '%Su' /dev/console") %}
+{%-   set macos_group = salt['cmd.run']("stat -f '%Sg' /dev/console") %}
+{%-   do grafana.update({'rootuser': macos_user}) %}
+{%-   do grafana.update({'rootgroup': macos_group}) %}
+{%-   do grafana.service.update({'rootgroup': macos_group}) %}
+{%-   do grafana.service.update({'group': macos_group}) %}
+{%- endif %}
+
 {#- archive jinja #}
 {%- if grafana.pkg.use_upstream_archive %}
     {%- set name = 'grafana-%s.%s-%s'|format(grafana.version, grafana.kernel, grafana.arch) %}
