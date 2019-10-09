@@ -12,6 +12,6 @@
 {{ render_key_value_pairs(config.get("default", {})) }}
 {% for section, cfg in config.items() %}
 {%-   if section == "default" %}{% continue %}{% endif %}
-[{{section}}]
+[{{ section }}]
 {{ render_key_value_pairs(cfg) }}
 {%  endfor %}
