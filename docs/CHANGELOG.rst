@@ -2,6 +2,30 @@
 Changelog
 =========
 
+`3.1.1 <https://github.com/saltstack-formulas/grafana-formula/compare/v3.1.0...v3.1.1>`_ (2019-10-10)
+---------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **grafana.ini.jinja:** fix ``salt-lint`` errors (\ ` <https://github.com/saltstack-formulas/grafana-formula/commit/909a3e6>`_\ )
+* **install.sls:** fix ``salt-lint`` errors (\ ` <https://github.com/saltstack-formulas/grafana-formula/commit/4496044>`_\ )
+* **install.sls:** fix ``salt-lint`` errors (\ ` <https://github.com/saltstack-formulas/grafana-formula/commit/dcb6ed7>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen:** change ``log_level`` to ``debug`` instead of ``info`` (\ ` <https://github.com/saltstack-formulas/grafana-formula/commit/008d465>`_\ )
+* **kitchen:** install required packages to bootstrapped ``opensuse`` [skip ci] (\ ` <https://github.com/saltstack-formulas/grafana-formula/commit/6b84248>`_\ )
+* **kitchen:** use bootstrapped ``opensuse`` images until ``2019.2.2`` [skip ci] (\ ` <https://github.com/saltstack-formulas/grafana-formula/commit/7d0281a>`_\ )
+* **kitchen+travis:** replace EOL pre-salted images (\ ` <https://github.com/saltstack-formulas/grafana-formula/commit/2caa46b>`_\ )
+* **platform:** add ``arch-base-latest`` (commented out for now) [skip ci] (\ ` <https://github.com/saltstack-formulas/grafana-formula/commit/22d624b>`_\ )
+* **yamllint:** add rule ``empty-values`` & use new ``yaml-files`` setting (\ ` <https://github.com/saltstack-formulas/grafana-formula/commit/8f2ba08>`_\ )
+* merge travis matrix, add ``salt-lint`` & ``rubocop`` to ``lint`` job (\ ` <https://github.com/saltstack-formulas/grafana-formula/commit/fb65280>`_\ )
+* use ``dist: bionic`` & apply ``opensuse-leap-15`` SCP error workaround (\ ` <https://github.com/saltstack-formulas/grafana-formula/commit/85b69bb>`_\ )
+
 `3.1.0 <https://github.com/saltstack-formulas/grafana-formula/compare/v3.0.1...v3.1.0>`_ (2019-08-17)
 ---------------------------------------------------------------------------------------------------------
 

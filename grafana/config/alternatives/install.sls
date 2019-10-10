@@ -14,7 +14,7 @@ include:
 
 grafana-package-archive-install-home-alternative-install:
   cmd.run:
-    - name: update-alternatives --install {{ grafana.dir }} grafana-home {{ grafana.pkg.archive.name }} {{grafana.linux.altpriority}}
+    - name: update-alternatives --install {{ grafana.dir }} grafana-home {{ grafana.pkg.archive.name }} {{ grafana.linux.altpriority }}
     - watch:
       - archive: grafana-package-archive-install-archive-extracted
     - require:
@@ -44,7 +44,7 @@ grafana-package-archive-install-home-alternative-set:
 
 grafana-package-archive-install-{{ i }}-alternative-install:
   cmd.run:
-    - name: update-alternatives --install /usr/bin/{{i}} link-{{i}} {{ grafana.pkg.archive.name }}/bin/{{i}} {{grafana.linux.altpriority}}
+    - name: update-alternatives --install /usr/bin/{{ i }} link-{{ i }} {{ grafana.pkg.archive.name }}/bin/{{ i }} {{ grafana.linux.altpriority }}
     - require:
       - cmd: grafana-package-archive-install-home-alternative-install
     - onlyif: {{ grains.os_family in ('Suse',) }}
