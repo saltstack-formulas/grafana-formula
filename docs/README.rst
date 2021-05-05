@@ -1,5 +1,3 @@
-.. _readme:
-
 grafana-formula
 ================
 
@@ -13,6 +11,7 @@ grafana-formula
    :alt: Semantic Release
    :scale: 100%
    :target: https://github.com/semantic-release/semantic-release
+
 Manage Grafana.
 
 .. contents:: **Table of Contents**
@@ -103,4 +102,3 @@ This state will remove the grafana package and has a depency on
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This state will uninstall grafana software from archive extracted directory.
-
